@@ -228,7 +228,7 @@
                 console.log(frame.index);
                 if (frame.index < 32) {
                     console.log(`up y offset: ${asset.body.offset.y}`);
-                    asset.body.offset.y -= 1;
+                    asset.body.offset.y -= 2;
                 } else {
                     console.log(`down y offset: ${asset.body.offset.y}`);
                     asset.body.offset.x -= 1 * _direction;
@@ -243,7 +243,7 @@
             setState(_flyingJump);
             asset.animations.currentAnim.onComplete.addOnce(function onComplete() { 
                 console.log('jump complete');
-                asset.body.offset.y += 34;
+                asset.body.offset.y += 20;
                 flyingJump.onUpdate.remove(onUpdate, this);
                 stop();
             }, this);
@@ -319,10 +319,10 @@
         game.physics.arcade.enable(asset);
     
         //  Player physics properties. Give the little guy a slight bounce.
-        asset.body.bounce.y = 0.4;
+        asset.body.bounce.y = 0.0;
         asset.body.gravity.y = 900;
         // {"w":69,"h":107}
-        asset.body.setSize(22, 95, 0, -3);
+        asset.body.setSize(22, 25, 0, -3);
         asset.body.collideWorldBounds = true;
         
         return asset;
